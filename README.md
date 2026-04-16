@@ -1,10 +1,10 @@
-# senegal-yield-climate-extremes
-Machine learning framework (Random Forest and LASSO) to assess the impact of climate extremes on crop yield anomalies in Senegal using CMIP6 projections and SHAP analysis.
 # Senegal Yield - Climate Extremes
 
-This repository contains scripts to analyze the impact of climate extremes on crop yield anomalies in Senegal using machine learning models.
+Machine learning framework based on Random Forest to assess the impact of climate extremes on crop yield anomalies in Senegal using CMIP6 projections and SHAP analysis.
 
 ## Overview
+
+This repository contains scripts to analyze the impact of climate extremes on crop yield anomalies in Senegal using a machine learning approach.
 
 The workflow includes:
 
@@ -13,21 +13,18 @@ The workflow includes:
 3. Climate data extraction (CHIRPS, ERA5, CMIP6)
 4. Computation of climate extreme indices (TXx, TX35, RX1day, CDD, R95pTOT, PRtotal, SPEI3)
 5. Dataset construction for machine learning
-6. Machine learning models:
-   - Random Forest (RF)
-   - LASSO regression
+6. Random Forest modeling
 7. Model evaluation using Leave-One-Year-Out (LOYO)
 8. SHAP analysis for model interpretability
 
 ## Study area
 
-Senegal (24 departments across Sahelian, central and southern agro-ecological zones)
+Senegal (24 departments across Sahelian, central, and southern agro-ecological zones)
 
-## Models
+## Model
 
-- Random Forest: non-linear relationships and interactions
-- LASSO: linear sparse model for comparison
-- SHAP: feature attribution and interpretation
+- Random Forest: captures non-linear relationships and interactions between climate variables
+- SHAP: used to interpret model outputs and quantify the contribution of climatic drivers
 
 ## Climate scenarios
 
@@ -41,6 +38,12 @@ Senegal (24 departments across Sahelian, central and southern agro-ecological zo
 - Python (pandas, numpy, xarray, sklearn, shap)
 - CDO (Climate Data Operators)
 - Bash environment
+
+## Note
+
+This repository contains the final version of the analysis based exclusively on a Random Forest model.
+
+LASSO regression was tested during preliminary analysis but is not included in the final framework.
 
 ## Author
 
