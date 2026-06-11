@@ -8,8 +8,8 @@ import os
 # ==========================
 # PATHS
 # ==========================
-DAPSA_FILE = "/media/sarr/01DC8542A2C1AE10/DAPSA.xlsx"
-OUTDIR = "/media/sarr/01DC8542A2C1AE10/yield_data"
+DAPSA_FILE = "/media/sarr/01DC5DE9D15E8CF0/dossier/DAPSA.xlsx"
+OUTDIR = "/media/sarr/01DC5DE9D15E8CF0/dossier/yield_data"
 
 os.makedirs(OUTDIR, exist_ok=True)
 
@@ -49,12 +49,12 @@ departments = sorted([
     "Tambacounda","Thies","Tivaouane","Velingara","Ziguinchor"
 ])
 
-years = list(range(2000, 2014))
+years = list(range(1984, 2014))
 
 # ==========================
 # FILTER PERIOD
 # ==========================
-df = df[df["annee"].between(2000, 2013)]
+df = df[df["annee"].between(1984,2013)]
 
 # ==========================
 # PROCESS EACH CROP
