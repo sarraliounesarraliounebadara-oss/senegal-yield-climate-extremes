@@ -28,7 +28,7 @@ Senegal (24 departments across Sahelian, central, and southern agro-ecological z
 
 ## Climate scenarios
 
-- Historical: 2000–2013
+- Historical: 1986–2013
 - Near future: 2036–2065
 - Far future: 2071–2100
 - Scenarios: SSP245 and SSP585
@@ -47,7 +47,7 @@ LASSO regression was tested during preliminary analysis but is not included in t
 
 ## Author
 
-Alioune Sarr
+Dr Alioune Badara Sarr
 
 ## Code availability
 
