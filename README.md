@@ -10,8 +10,8 @@ The workflow includes:
 
 1. Yield data processing and anomaly computation (LOESS)
 2. Crop mask construction using MIRCA data
-3. Climate data extraction (CHIRPS, ERA5, CMIP6)
-4. Computation of climate extreme indices (TXx, TX35, RX1day, CDD, R95pTOT, PRtotal, SPEI3)
+3. Climate data extraction (ARC2 merged with ANACIM station observations, CHIRTS and CMIP6)
+4. Computation of climate extreme indices (TXx, TNx, RX1day,RX5day, CDD, R95pTOT, PRtotal, SPEI3)
 5. Dataset construction for machine learning
 6. Random Forest modeling
 7. Model evaluation using Leave-One-Year-Out (LOYO)
