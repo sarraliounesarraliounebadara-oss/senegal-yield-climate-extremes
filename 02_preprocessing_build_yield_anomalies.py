@@ -129,9 +129,9 @@ for f in files:
             print(f"   Department: {dep} -> Pas assez de données ({len(group)} obs pour LOESS)")
             continue
 
-        # Lissage LOESS (frac=0.4)
+        # Lissage LOESS (frac=0.6)
         loess_fit = lowess(
-            group["yield"], group["year"], frac=0.4, return_sorted=True
+            group["yield"], group["year"], frac=0.6, return_sorted=True
         )
 
         # Interpolation pour s'assurer d'avoir une valeur de tendance pour chaque année du groupe
