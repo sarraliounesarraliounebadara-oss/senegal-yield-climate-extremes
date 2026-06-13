@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # =========================================================================
-# BUILD YIELD ANOMALY (LOESS DETRENDING) - VERSION CORRIGÉE ET SÉCURISÉE
+# BUILD YIELD ANOMALY (LOESS DETRENDING) - 
 # =========================================================================
 
 import os
@@ -52,7 +52,6 @@ for f in files:
     print("=================================")
 
     # =================================================================
-    # CHARGEMENT MULTI-FORMATS ULTRA-ROBUSTE (Excel / Tab / CSV)
     # =================================================================
     df = None
     
@@ -80,7 +79,6 @@ for f in files:
             except Exception:
                 continue
 
-    # Si après tous les essais aucun DataFrame n'est valide
     if df is None:
         print(f"❌ Impossible de lire le fichier {f} ou de détecter la colonne 'department'. Fichier ignoré.")
         continue
@@ -102,19 +100,14 @@ for f in files:
     df["yield"] = pd.to_numeric(df["yield"], errors="coerce")
 
     # -----------------------------------------------------------------
-    # CORRECTION CRITIQUE : NETTOYAGE DES VALEURS MANQUANTES / FAUX ZÉROS
     # -----------------------------------------------------------------
-    # 1. Suppression préventive des lignes n'ayant ni année ni rendement (NaN)
     df = df.dropna(subset=["yield", "year"])
     
-    # 2. Remplacement des rendements à 0.0 par des NaN (données manquantes réelles)
-    # Cela évite les fausses anomalies à -100% et stabilise la tendance LOESS
+    
     df = df[df["yield"] > 0]
 
-    # Tri des données par département puis par ordre chronologique
     df = df.sort_values(["department", "year"]).reset_index(drop=True)
 
-    # Initialisation des colonnes de résultats
     df["yield_trend"] = np.nan
     df["yield_anomaly"] = np.nan
 
@@ -138,35 +131,24 @@ for f in files:
         trend_all = np.interp(group["year"], loess_fit[:, 0], loess_fit[:, 1])
 
         # -----------------------------------------------------------------
-        # SÉCURITÉ MATRICIELLE ET SÉCURISATION CONTRE LA DIVISION PAR 0
         # -----------------------------------------------------------------
         y_val = group["yield"].values
         t_val = trend_all
 
-        # SÉCURITÉ 1 : Forcer les tendances négatives de LOESS à être au moins égales à 0.0
         t_val = np.where(t_val < 0, np.nan, t_val)
 
-        # Sauvegarde de la tendance corrigée dans le DataFrame principal
         df.loc[idx, "yield_trend"] = t_val
 
-        # Initialisation du vecteur d'anomalies temporaire rempli de NaN
         anomaly = np.full(len(group), np.nan)
 
-        # SÉCURITÉ 2 : Seuil limite sous lequel le calcul de % n'est plus viable
-       # Initialisation du vecteur d'anomalies temporaire rempli de NaN
         anomaly = np.full(len(group), np.nan)
 
-        # SÉCURITÉ 2 : Seuil limite sous lequel le calcul de % n'est plus viable
         seuil_tendance = 10.0
 
-        # Masques logiques robustes aux NaN
-        # 1. La tendance est valide (pas NaN) et supérieure au seuil
         tendance_saine = (~np.isnan(t_val)) & (t_val > seuil_tendance)
         
-        # 2. La tendance est valide (pas NaN), et la tendance ET le rendement sont inférieurs au seuil
         tendance_et_rendement_nuls = (~np.isnan(t_val)) & (t_val <= seuil_tendance) & (y_val <= seuil_tendance)
 
-        # Application des calculs vectorisés
         anomaly[tendance_saine] = (
             (y_val[tendance_saine] - t_val[tendance_saine]) * 100
         ) / t_val[tendance_saine]
@@ -182,7 +164,6 @@ for f in files:
     base_path, _ = os.path.splitext(path)
     out_file = base_path + ".txt"
 
-    # Enregistrement au format texte séparé par des tabulations (TSV)
     df.to_csv(out_file, sep="\t", index=False)
     print(f"✅ Fichier anomalies enregistré avec succès : {out_file}")
 
