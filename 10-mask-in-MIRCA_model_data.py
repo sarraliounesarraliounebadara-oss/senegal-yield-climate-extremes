@@ -54,24 +54,13 @@ scenarios = [
 
 vars_keep = [
 
-      "CDD",
-      "CWD",
-      "PRtot",
-      "R95pTOT",
-      "RX1day",
-      "SPEI3",
-      "WSDI",
-      "TXx",
-      "TNx",
-      "DTR",
-      "TX90p",
-      "TN90p",
-      "TX35",
-      "RX5day",
-      "SDII",
-      "R1mm",
-      "R10mm",
-      "R20mm"
+     "TXx",
+    "TNx",
+    "RX5day",
+    "R95pTOT",
+    "CDD",
+    "PRtot",
+    "SPEI3"
 
 ]
 
