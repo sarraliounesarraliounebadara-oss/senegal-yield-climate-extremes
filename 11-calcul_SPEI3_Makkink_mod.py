@@ -62,7 +62,7 @@ for d in [
         exist_ok=True
     )
 
-HIST_START = "1984-01-01"
+HIST_START = "1986-01-01"
 HIST_END   = "2013-12-31"
 
 NEAR_START = "2036-01-01"
