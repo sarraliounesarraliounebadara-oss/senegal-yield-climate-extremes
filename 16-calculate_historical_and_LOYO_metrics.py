@@ -6,8 +6,7 @@ No plotting.
 
 By default, both fitted and LOYO metrics are restricted to 1986-2013,
 which is the calibration period stated in the manuscript.
-Set LOYO_START=1984 in the environment only if you need to reproduce an
-older supplementary calculation that retained the two early RF rows.
+
 """
 
 # ============================================================
