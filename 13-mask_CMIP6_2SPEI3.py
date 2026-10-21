@@ -100,28 +100,14 @@ MODELS = [
 # SPEI3_Makkink sera ajouté depuis les fichiers séparés.
 
 vars_keep = [
-
     "CDD",
-    "CWD",
     "PRtot",
+    "RX5day",
     "R95pTOT",
-    "RX1day",
-
     "SPEI3_Hargreaves",
     "SPEI3_Makkink",
-
-    "WSDI",
     "TXx",
-    "TNx",
-    "DTR",
-    "TX90p",
-    "TN90p",
-    "TX35",
-    "RX5day",
-    "SDII",
-    "R1mm",
-    "R10mm",
-    "R20mm"
+    "TNx"
 
 ]
 
