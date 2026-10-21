@@ -41,7 +41,7 @@ OUT_FILE = os.path.join(
     "observations_spei3_makkink_1984-2013.nc"
 )
 
-HIST_START = "1984-01-01"
+HIST_START = "1986-01-01"
 HIST_END   = "2013-12-31"
 
 JJAS = [6, 7, 8, 9]
