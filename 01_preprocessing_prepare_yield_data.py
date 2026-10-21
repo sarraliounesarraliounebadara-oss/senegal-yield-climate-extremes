@@ -49,7 +49,7 @@ departments = sorted([
     "Tambacounda","Thies","Tivaouane","Velingara","Ziguinchor"
 ])
 
-years = list(range(1984, 2014))
+years = list(range(1986, 2014))
 
 # ==========================
 # FILTER PERIOD
