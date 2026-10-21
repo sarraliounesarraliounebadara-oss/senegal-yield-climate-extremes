@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 R95pTOT SSP2-4.5 vs SSP5-8.5 model-wise comparison.
-Uses RAW climate tables and the fixed 1984-2013 climate reference used for the
+Uses RAW climate tables and the fixed 1986-2013 climate reference used for the
 R95pTOT threshold / climate baseline in this sensitivity calculation.
 No plotting.
 """
